@@ -1,0 +1,12 @@
+TopRule = $* (
+    $pomodoro {session='pomodoro'} |
+    $shortBreak {session='break'} {type='short'} |
+    $longBreak {session='break'} {type='short'}
+) $*;
+
+pomodoro = start $* (pomodoro | work);
+shortBreak = start $* long break;
+longBreak = start $* short break;
+
+location = $factory:city_state{_city = city_state._city}{_state = city_state._state};
+reserve = reserve | order | book;

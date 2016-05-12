@@ -7,6 +7,9 @@ jibo.init('face', function(err) {
     if (err) {
         return console.error(err);
     }
+
+    require('./behaviors/center-robot');
+
     // Load and create the behavior tree
     let root = jibo.bt.create('../behaviors/pomodoro');
     root.start();

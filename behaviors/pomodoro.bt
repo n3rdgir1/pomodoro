@@ -95,11 +95,15 @@
                 "    return options;",
                 "}"
             ],
-            "rule": "null",
+            "rule": "pomodoro.rule",
             "onResult": [
                 "(listener) => {",
-                "    listener.on('cloud', function(asrResult, speakerIds) {",
-                "",
+                "    listener.on('hey-jibo', (asrResult, speakerIds) => {",
+                "        emitter.emit('listen')",
+                "    });",
+                "    listener.on('cloud', (asrResult, speakerIds) => {",
+                "        console.log(asrResult);",
+                "        notepad.results = asrResult.NLParse",
                 "    });",
                 "}"
             ]

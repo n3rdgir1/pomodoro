@@ -5,8 +5,8 @@ TopRule = $* (
 ) $*;
 
 pomodoro = start $* (pomodoro | work);
-shortBreak = start $* long break;
-longBreak = start $* short break;
+shortBreak = start $* short break;
+longBreak = start $* long break;
 
 location = $factory:city_state{_city = city_state._city}{_state = city_state._state};
 reserve = reserve | order | book;

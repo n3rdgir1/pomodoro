@@ -1,0 +1,213 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "children": [
+            "b2d70c4e-be49-4b3c-b66e-f4c42f97f902",
+            "8398f01f-cd01-46b6-831d-cfbea7df9633"
+        ],
+        "decorators": [
+            "7a800e94-1385-4ddc-9600-f4e8c6bc6c24"
+        ]
+    },
+    "meta": {
+        "version": 1
+    },
+    "8398f01f-cd01-46b6-831d-cfbea7df9633": {
+        "id": "8398f01f-cd01-46b6-831d-cfbea7df9633",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "4bffdd33-0fb6-4359-9062-103f9e956344",
+            "d67a23ea-5652-4eb6-b21e-3e726e429593",
+            "d7d3805d-d74d-43f0-83c9-fea0c54c7439"
+        ]
+    },
+    "d67a23ea-5652-4eb6-b21e-3e726e429593": {
+        "id": "d67a23ea-5652-4eb6-b21e-3e726e429593",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "8398f01f-cd01-46b6-831d-cfbea7df9633"
+    },
+    "29a6f474-6134-42a6-a8d7-5d3a64cd8a4e": {
+        "id": "29a6f474-6134-42a6-a8d7-5d3a64cd8a4e",
+        "class": "Subtree",
+        "name": "",
+        "options": {
+            "behaviorPath": "idle.bt",
+            "getNotepad": [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            "onResult": [
+                "(treeResult) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "256ba4eb-870b-4244-9beb-c22833dbdbd1",
+        "decorators": [
+            "88db6bba-e7d0-46f5-8339-2ab1ca58b579"
+        ]
+    },
+    "88db6bba-e7d0-46f5-8339-2ab1ca58b579": {
+        "id": "88db6bba-e7d0-46f5-8339-2ab1ca58b579",
+        "class": "SucceedOnEvent",
+        "name": "",
+        "options": {
+            "eventName": "listen",
+            "onEvent": [
+                "() => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "4b7db346-dcf4-4088-a82f-854d5a83aff3": {
+        "id": "4b7db346-dcf4-4088-a82f-854d5a83aff3",
+        "class": "Listen",
+        "name": "",
+        "options": {
+            "getOptions": [
+                "() => {",
+                "    let options = {",
+                "        heyJibo: true,",
+                "        detectEnd: true,",
+                "        incremental: false",
+                "    }",
+                "    return options;",
+                "}"
+            ],
+            "rule": "null",
+            "onResult": [
+                "(listener) => {",
+                "    listener.on('cloud', function(asrResult, speakerIds) {",
+                "",
+                "    });",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "b2d70c4e-be49-4b3c-b66e-f4c42f97f902"
+    },
+    "d7d3805d-d74d-43f0-83c9-fea0c54c7439": {
+        "id": "d7d3805d-d74d-43f0-83c9-fea0c54c7439",
+        "class": "TextToSpeechJs",
+        "name": "",
+        "options": {
+            "getWords": [
+                "(callback) => {",
+                "    if(notepad.results.status === \"GOT-PARSE\") {",
+                "        let results = notepad.results;",
+                "        let text = 'Sure I\\'ll start a ' + results.session +  results.type;",
+                "        ",
+                "        callback(text);",
+                "    }",
+                "    else {",
+                "        callback('Sorry, what?');",
+                "    }",
+                "    ",
+                "}"
+            ],
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "8398f01f-cd01-46b6-831d-cfbea7df9633"
+    },
+    "b2d70c4e-be49-4b3c-b66e-f4c42f97f902": {
+        "id": "b2d70c4e-be49-4b3c-b66e-f4c42f97f902",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "256ba4eb-870b-4244-9beb-c22833dbdbd1",
+            "4b7db346-dcf4-4088-a82f-854d5a83aff3"
+        ]
+    },
+    "7a800e94-1385-4ddc-9600-f4e8c6bc6c24": {
+        "id": "7a800e94-1385-4ddc-9600-f4e8c6bc6c24",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "256ba4eb-870b-4244-9beb-c22833dbdbd1": {
+        "id": "256ba4eb-870b-4244-9beb-c22833dbdbd1",
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "b2d70c4e-be49-4b3c-b66e-f4c42f97f902",
+        "children": [
+            "29a6f474-6134-42a6-a8d7-5d3a64cd8a4e",
+            "323b6ce6-ce3e-4a2b-b9e6-b8d73540fcba"
+        ]
+    },
+    "323b6ce6-ce3e-4a2b-b9e6-b8d73540fcba": {
+        "id": "323b6ce6-ce3e-4a2b-b9e6-b8d73540fcba",
+        "class": "ExecuteScriptAsync",
+        "name": "",
+        "options": {
+            "exec": [
+                "(succeed, fail) => {",
+                "    let dofs = jibo.animate.dofs;",
+                "    jibo.animate.centerRobot(dofs.ALL, true, () => {",
+                "        jibo.animate.setLEDColor([0, 0, 1]);",
+                "        succeed();    ",
+                "    });",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "256ba4eb-870b-4244-9beb-c22833dbdbd1"
+    },
+    "4bffdd33-0fb6-4359-9062-103f9e956344": {
+        "id": "4bffdd33-0fb6-4359-9062-103f9e956344",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  console.log('SHUTTING OFF LED');",
+                "  jibo.animate.setLEDColor([0, 0, 0]);",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "8398f01f-cd01-46b6-831d-cfbea7df9633"
+    }
+}

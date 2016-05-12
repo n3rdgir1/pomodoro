@@ -8,7 +8,7 @@ jibo.init('face', function(err) {
         return console.error(err);
     }
     // Load and create the behavior tree
-    let root = jibo.bt.create('../behaviors/main');
+    let root = jibo.bt.create('../behaviors/pomodoro');
     root.start();
 
     // Listen for the jibo main update loop

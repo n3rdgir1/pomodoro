@@ -1,7 +1,7 @@
 TopRule = $* (
     $pomodoro {session='pomodoro'} |
     $shortBreak {session='break'} {type='short'} |
-    $longBreak {session='break'} {type='short'}
+    $longBreak {session='break'} {type='long'}
 ) $*;
 
 pomodoro = start $* (pomodoro | work);

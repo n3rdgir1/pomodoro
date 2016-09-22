@@ -235,8 +235,10 @@
                 "(callback) => {",
                 "    if(notepad.results.status === \"GOT-PARSE\") {",
                 "        let results = notepad.results;",
-                "        let text = 'Done with ' + results.session + \" \" +  results.type;",
-                "        ",
+                "        let text = \"Done with \" + results.session;",
+                "        if(results.type){",
+                "          text += \" \" + results.type;",
+                "        }",
                 "        callback(text);",
                 "    }",
                 "}"

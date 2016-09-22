@@ -207,12 +207,11 @@
                 "  var $ = require('jquery');",
                 "  $(\"#nTimerCover\").fadeOut(\"fast\",function(){",
                 "    $(\".nTimerStatus\").fadeOut(\"fast\");",
-                "    $(\"#eye\").fadeIn(\"fast\",function(){",
-                "      $(\"BODY\").css({backgroundColor:\"\"});",
-                "      // Remove all dynamically added elements",
-                "      $(\"#nTimerCover\").remove();",
-                "      $(\".nTimerStatus\").remove();",
-                "    });",
+                "    $(\"#eye\").fadeIn(\"fast\");",
+                "    $(\"BODY\").css({backgroundColor:\"\"});",
+                "    // Remove all dynamically added elements",
+                "    $(\"#nTimerCover\").remove();",
+                "    $(\".nTimerStatus\").remove();",
                 "  });",
                 "}"
             ]

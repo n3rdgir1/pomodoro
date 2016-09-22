@@ -114,14 +114,14 @@
 }
 .innerCircle {
     position: absolute;
-    width: 570px;
-    height: 570px;
-    -moz-border-radius: 285px;
-    -webkit-border-radius: 285px;
-    border-radius: 285px;
+    width: 560px;
+    height: 560px;
+    -moz-border-radius: 280px;
+    -webkit-border-radius: 280px;
+    border-radius: 280px;
     background-color: #000;
     border-color: #000;
-    margin: 15px;
+    margin: 20px;
 }
 .status {
     position: absolute;
